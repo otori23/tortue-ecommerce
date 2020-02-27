@@ -8,7 +8,10 @@ const settings = {
 };
 
 module.exports = {
-  entry: path.join(settings.srcPath, 'js', 'index.js'),
+  entry: [
+    path.join(settings.srcPath, 'js', 'index.js'),
+    path.join(settings.srcPath, 'index.html')
+  ],
   output: {
     path: settings.distPath,
     filename: 'bundle.js'
@@ -27,6 +30,23 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|ico)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'img/',
+              esModule: false
+            }
+          }
+        ]
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader'
       }
     ]
   },
