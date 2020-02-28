@@ -2,10 +2,16 @@
 
 - "white computer screen"
 
-0) Nav
+0a) Nav
 
 - fixed; for smooth scroll behaviour
 - also, want snapping to sections
+
+0b) Images Sources
+
+- pngfuel.com
+- pexels
+- pixabay
 
 1) Hero/Showcase Section
 
