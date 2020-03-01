@@ -41,6 +41,12 @@ module.exports = {
               outputPath: 'img/',
               esModule: false
             }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: false
+            }
           }
         ]
       },
