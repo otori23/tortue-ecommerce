@@ -49,3 +49,11 @@ right: {{icon}} to finish
 - I only included the css from the 
 - distinction between svg and font icons
 - how to pick out only the parts of the library that you are using (to reduce bundle size)
+
+5b) Can't Get Scroll Snap Working 
+
+- what up?
+
+6) Reflect on Webpack Workflow
+
+- what is more efficient
