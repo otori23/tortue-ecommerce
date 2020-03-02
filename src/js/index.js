@@ -48,10 +48,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
             form.reset();
             setResetFor(fullname);
             setResetFor(email);
-            alert('Success!');
+            alert('Your message was sent successfully!');
           })
-          .catch(error => {
-            alert(error);
+          .catch(() => {
+            alert('There was an error sending your message.');
           });
       }
     });
