@@ -31,9 +31,28 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
       e.preventDefault();
 
       if (checkInputs()) {
-        form.reset();
-        setResetFor(fullname);
-        setResetFor(email);
+        const formData = new FormData(form);
+        const postBody = {
+          'form-name': form.name,
+          fullname: formData.get('fullname'),
+          email: formData.get('email'),
+          message: formData.get('message')
+        };
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode(postBody)
+        })
+          .then(() => {
+            form.reset();
+            setResetFor(fullname);
+            setResetFor(email);
+            alert('Success!');
+          })
+          .catch(error => {
+            alert(error);
+          });
       }
     });
 
@@ -84,6 +103,14 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
       return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       );
+    }
+
+    function encode(data) {
+      return Object.keys(data)
+        .map(
+          key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+        )
+        .join('&');
     }
   });
 })();
