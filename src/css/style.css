@@ -201,6 +201,25 @@ img {
   margin-left: 1000px;
 }
 
+/* Showcase for small screen */
+.section.showcase-sm {
+  display: none;
+}
+
+.section.showcase-sm::after {
+  content: '';
+  background-image: url('../img/galaxy.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 /* About */
 .section.about {
   display: flex;
@@ -248,7 +267,7 @@ img {
   font-size: 1.5rem;
 }
 
-.section.about a {
+.section a {
   color: var(--handle-color);
   text-decoration: none;
   font-weight: bold;
@@ -258,7 +277,7 @@ img {
   border-radius: 20px;
 }
 
-.section.about a:hover {
+.section a:hover {
   color: var(--california-color);
 }
 
@@ -397,4 +416,92 @@ img {
 
 .section.contact .form .hidden {
   display: none;
+}
+
+@media (max-width: 1100px) {
+  .navbar {
+    display: none;
+  }
+
+  .section.skewed {
+    display: none;
+  }
+
+  .section.showcase-sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section.showcase-sm .container {
+    margin: 20px;
+  }
+
+  .section.showcase-sm h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--handle-color);
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .section.showcase-sm .fa-store {
+    margin: 10px;
+  }
+
+  .section.showcase-sm h2 {
+    color: var(--california-color);
+  }
+
+  .section.about .container {
+    padding: 10px 20px;
+  }
+
+  .section.about img {
+    width: 350px;
+  }
+
+  .section.contact .container {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .section.about img {
+    width: 200px;
+  }
+
+  .section.about h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section.about .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section.about .content {
+    text-align: center;
+  }
+
+  .section.about a {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section.contact .container {
+    margin: 10px 20px;
+  }
+
+  .section.contact .header h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
